@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 
 interface DogBreedData {
@@ -26,13 +27,14 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 export default async function DetailDogBreedPage({ params }: { params: { id: string } }) {
   const id = params.id as string;
   const breedDogInfor = await getInforDetailDogBreed(id);
+  const t = await getTranslations('InforBreedDog');
 
   return (
     <div>
-      <h2>Thông tin chi tiết giống chó</h2>
-      <h4>Tên: {breedDogInfor.attributes.name}</h4>
-      <p>Mô tả: {breedDogInfor.attributes.description}</p>
-      <p>Loại: {breedDogInfor.type}</p>
+      <h2>{t('titlePage')}</h2>
+      <h4>{`${t('name')} ${breedDogInfor.attributes.name}`}</h4>
+      <p>{`${t('description')}: ${breedDogInfor.attributes.description}`}</p>
+      <p>{`${t('type')}: ${breedDogInfor.type}`}</p>
     </div>
   );
 }

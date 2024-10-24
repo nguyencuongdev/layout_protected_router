@@ -1,0 +1,11 @@
+{
+    "DogManagement": {
+        "title": "Dog Management"
+    },
+    "InforBreedDog": {
+        "titlePage": "Infor detail for breed dog",
+        "name": "Name: ",
+        "description": "Description: ",
+        "type": "Type: "
+    }
+}

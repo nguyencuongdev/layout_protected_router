@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import {getTranslations} from 'next-intl/server';
 
 export type Dog = {
   id: number;
@@ -20,9 +21,11 @@ async function DogManagementPage() {
   const dataResponse = await res.json();
   const breedDogList = dataResponse.data;
 
+  const t = await getTranslations('DogManagement');
+
   return (
     <div>
-      <h2>Quản lý chó</h2>
+      <h2>{t('title')}</h2>
       <ul>
         {breedDogList.map((dog: Dog) => (
           <li key={`${dog.id}`}>

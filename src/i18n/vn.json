@@ -1,0 +1,11 @@
+{
+    "DogManagement": {
+        "title": "Quản lý các giống chó"
+    },
+    "InforBreedDog": {
+        "titlePage": "Thông tin chi tiết giống chó",
+        "name": "Tên: ",
+        "description": "Mô tả: ",
+        "type": "Loại: "
+    }
+}
