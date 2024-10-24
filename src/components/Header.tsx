@@ -1,14 +1,17 @@
 'use client';
 
-import { Locale, locales, setUserLocale } from '@/utils';
+import { locales } from '@/utils';
 import { useLocale } from 'next-intl';
 import { ChangeEvent } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 
 function Header() {
   const locale = useLocale() ?? 'vn';
+  const router = useRouter();
+  const pathName = usePathname();
 
   const handleChangeLocale = (locale: string) => {
-    setUserLocale(locale as Locale);
+    router.replace(`/${locale}/${pathName.slice(4, pathName.length)}`);
   };
 
   return (
